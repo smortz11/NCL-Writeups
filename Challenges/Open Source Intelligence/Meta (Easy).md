@@ -17,7 +17,7 @@ In the output, locate the `Create Date` field:
 Create Date                     : 2015:05:15 02:14:22
 ```
 
-	Note: This is different from the file modification date, which can change if the file is copied or edited. `Create Date` represents when the photo was originally captured.
+Note: This is different from the file modification date, which can change if the file is copied or edited. `Create Date` represents when the photo was originally captured.
 #### Answer:
 `2015-05-15 02:14`
 
@@ -85,7 +85,7 @@ GPS Position                    : 39 deg 52' 30.00" N, 20 deg 0' 36.00" E
 ```
 
 #### Answer
-`39 deg 52' 30.00" N, 20 deg 0' 36.00" E
+`39 deg 52' 30.00" N, 20 deg 0' 36.00" E`
 
 ---
 # Conclusion

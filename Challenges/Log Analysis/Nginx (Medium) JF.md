@@ -3,7 +3,7 @@ Analyze an nginx access log and answer questions about what happened.
 
 Download the log file and open it with 'open "access_(8).log"'
 
-
+![A picture of the log file mentioned above open ith its contents.](https://github.com/smortz11/NCL-Writeups/blob/main/Attachments/Log%20Analysis/Nginx1.png)
 
 ---
 # Q1 - 10 Points
@@ -11,7 +11,9 @@ Download the log file and open it with 'open "access_(8).log"'
 
 Do the command:
 
-```cat 'access_(8).log' | cut -d " " -f 1 | sort | uniq | wc -l```
+```bash
+cat 'access_(8).log' | cut -d " " -f 1 | sort | uniq | wc -l
+```
 
 This is saying that we need to concatenate the files contents while only using the first line and breaking off everything after the delimeter (space).
 Then we are sorting them numerically while only accounting for unique IP's. Finally, we get a printout of actually how many there are.
@@ -24,7 +26,9 @@ Then we are sorting them numerically while only accounting for unique IP's. Fina
 
 Run:
 
-```cat 'access_(8).log' | grep " 200 " | wc -l```
+```bash
+cat 'access_(8).log' | grep " 200 " | wc -l
+```
 
 We are looking for 200 status so we need to search for 200. It is important to know that we see that 200 codes always have a space behind them.
 We get to use this to our advantage so we can grep for a space quoted behind the 200. Then we just get to wordcount the amount of lines for our answer.
@@ -37,7 +41,9 @@ We get to use this to our advantage so we can grep for a space quoted behind the
 
 Try:
 
-```cat 'access_(8).log' | grep " 400 " | wc -l```
+```bash
+cat 'access_(8).log' | grep " 400 " | wc -l
+```
 
 Nothing too different happening on this one. Simply query for a 400 instead of a 200.
 
@@ -54,18 +60,20 @@ That is until I tried it with just "bell"
 
 Until I ran:
 
-```cat 'access_(8).log' | grep "bell""```
+```bash
+cat 'access_(8).log' | grep "bell""
+```
 
 Well we actually get a result from this command when ran.
 
-
+![A picture of the log file mentioned above open ith its contents.](https://github.com/smortz11/NCL-Writeups/blob/main/Attachments/Log%20Analysis/Nginx2.png)
 
 Looking at the IP address associated with this log we can get the answer for this question.
 
 #### Answer:
 `186.64.69.141`
 
-##OTHER QUESTIONS UNDER CONSTRUCTION
+## OTHER QUESTIONS UNDER CONSTRUCTION
 
 ---
 # Conclusion

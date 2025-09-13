@@ -3,6 +3,8 @@ Analyze an nginx access log and answer questions about what happened.
 
 Download the log file and open it with 'open "access_(8).log"'
 
+
+
 ---
 # Q1 - 10 Points
 #### How many different IP addresses reached the server?

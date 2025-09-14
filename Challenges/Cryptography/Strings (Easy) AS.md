@@ -28,4 +28,4 @@ This will return a flag if it exists in the image.
 ---
 # Conclusion
 
-A short conclusion if necessary
+Strings is an important tool to help us when extracting information from a steganographed picture. It is likely going to be used at least once during the games, so knowing this simple tool is very helpful.

@@ -1,12 +1,11 @@
 from math import gcd
-from sympy import isprime
 
 # Inputs
 n = int(input("Enter the modulus (N): "))
 e = int(input("Enter the public exponent (e): "))
-c = int(input("Enter the cipher text (c): "))
+c_blocks = input("Enter the ciphertext blocks, separated by spaces: ").split()
 
-# Step 1: Factor n (simple trial division for demonstration)
+# Factor n
 def factor_n(n):
     for i in range(2, int(n**0.5)+1):
         if n % i == 0:
@@ -20,12 +19,11 @@ if not p or not q:
 
 print(f"Factors found: p={p}, q={q}")
 
-# Step 2: Compute Euler's totient
+# Compute phi
 phi = (p-1)*(q-1)
 
-# Step 3: Compute modular inverse of e (private key d)
+# Modular inverse
 def modinv(a, m):
-    # Extended Euclidean Algorithm
     m0, x0, x1 = m, 0, 1
     while a > 1:
         q = a // m
@@ -36,6 +34,15 @@ def modinv(a, m):
 d = modinv(e, phi)
 print(f"Private key d={d}")
 
-# Step 4: Decrypt ciphertext
-m = pow(c, d, n)
-print(f"Decrypted message: {m}")
+# Decrypt each block
+plaintext = ""
+for c_str in c_blocks:
+    c = int(c_str)
+    if c >= n:
+        print(f"Warning: block {c} >= n. Skipping...")
+        continue
+    m = pow(c, d, n)
+    # Convert number to character (assuming ASCII)
+    plaintext += chr(m)
+
+print(f"Decrypted message: {plaintext}")
